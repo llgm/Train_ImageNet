@@ -24,8 +24,8 @@ from utils import load_checkpoint, save_checkpoint, save_checkpoint_new, get_gra
 import warnings
 warnings.filterwarnings('ignore')
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # 有几块GPU写多少
-torch.distributed.init_process_group(backend="nccl")
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # 我有4张GPU，卡号为0,1,2,3
+torch.distributed.init_process_group(backend="nccl") # 初始化，必须写
 
 def parse_option():
     parser = argparse.ArgumentParser('My_Model training and evaluation script', add_help=False)
@@ -74,17 +74,6 @@ def main():
     torch.cuda.set_device(local_rank)
     global device
     device = torch.device("cuda", local_rank)
-
-    # if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
-    #     rank = int(os.environ["RANK"])
-    #     world_size = int(os.environ['WORLD_SIZE'])
-    #     print(f"RANK and WORLD_SIZE in environ: {rank}/{world_size}")
-    # else:
-    #     rank = -1
-    #     world_size = -1
-    # torch.cuda.set_device(config.LOCAL_RANK)
-    # torch.distributed.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
-    # torch.distributed.barrier()
 
     # rank = int(os.environ["RANK"])
     # world_size = int(os.environ['WORLD_SIZE'])
