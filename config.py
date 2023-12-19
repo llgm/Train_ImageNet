@@ -45,7 +45,7 @@ _C.MODEL = CN()
 # Model type
 _C.MODEL.TYPE = 'my_model'
 # Model name
-_C.MODEL.NAME = 'my_tiny_patch4_window7_224'
+_C.MODEL.NAME = 'my_model_name'
 # Checkpoint to resume, could be overwritten by command line argument
 _C.MODEL.RESUME = ''
 # Number of classes, overwritten in data preparation

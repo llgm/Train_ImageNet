@@ -1,6 +1,6 @@
 MODEL:
   TYPE: my_model
-  NAME: my_tiny_patch4_224
+  NAME: my_model_name
   DROP_PATH_RATE: 0.2
   SWIN:
     EMBED_DIM: 96

@@ -28,7 +28,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # 有几块GPU写多少
 torch.distributed.init_process_group(backend="nccl")
 
 def parse_option():
-    parser = argparse.ArgumentParser('FLatten Transformer training and evaluation script', add_help=False)
+    parser = argparse.ArgumentParser('My_Model training and evaluation script', add_help=False)
     parser.add_argument('--cfg', type=str, required=True, metavar="FILE", default='cfgs/my_model.yaml', help='path to config file', )
     parser.add_argument(
         "--opts",
@@ -38,7 +38,7 @@ def parse_option():
     )
 
     # easy config modification
-    parser.add_argument('--batch-size', type=int, help="8")
+    parser.add_argument('--batch-size', type=int, help="")
     parser.add_argument('--data-path', type=str, help='imagenet')
     parser.add_argument('--zip', action='store_true', help='use zipped dataset instead of folder dataset')
     parser.add_argument('--cache-mode', type=str, default='part', choices=['no', 'full', 'part'],
